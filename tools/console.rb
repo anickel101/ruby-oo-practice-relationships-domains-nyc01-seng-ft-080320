@@ -25,4 +25,4 @@ bob.new_trip(chicago_1)
 
 peter.new_trip(chicago_1)
 
-Pry.start
+binding.pry
