@@ -26,8 +26,8 @@ class Ingredient
 
     #find all ingredients that include the given string. (ie - "chocolate" would yield 
     #"chocoloate chips", "dark chocolate", etc)
-    def self.find_all_by_name(ingredient)
-
+    def self.find_all_by_name(ingredient_string)
+        self.all.find_all {|ingredient| ingredient.name.include?(ingredient_string)}
     end
 
 
