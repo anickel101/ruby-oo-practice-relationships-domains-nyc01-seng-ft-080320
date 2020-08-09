@@ -9,6 +9,20 @@ def reload
   load 'config/environment.rb'
 end
 
+#Lyft testing
+peggy = Driver.new("Peggy")
+sue = Passenger.new("Sue")
+bob = Passenger.new("Bob")
+billy = Driver.new("Billy")
+
+peggy.new_ride(sue, 100)
+peggy.new_ride(sue, 200)
+
+bob.new_ride(billy, 50)
+bob.new_ride(peggy, 25)
+
+
+
 # Airbnb practice info
 # bob = Guest.new("Bob")
 # peter = Guest.new("Peter")
@@ -26,19 +40,21 @@ end
 
 # peter.new_trip(chicago_1)
 
-dub_pies = Bakery.new("Dub Pies")
-dub_cakes = Bakery.new("Dub Cakes")
-dub_bagels = Bakery.new("Dub Bagels")
 
-chocolate = Ingredient.new("chocolate", 75)
-flour = Ingredient.new("flour", 150)
-sugar = Ingredient.new("sugar", 125)
-eggs = Ingredient.new("eggs", 50)
-dark_chocolate = Ingredient.new("dark chocolate", 80)
+#Lyft testing
+# dub_pies = Bakery.new("Dub Pies")
+# dub_cakes = Bakery.new("Dub Cakes")
+# dub_bagels = Bakery.new("Dub Bagels")
 
-cake_mix = [chocolate, flour, sugar, eggs]
-bread_mix = [flour, eggs]
-dark_choc_cake_mix = [dark_chocolate, flour, sugar, eggs]
+# chocolate = Ingredient.new("chocolate", 75)
+# flour = Ingredient.new("flour", 150)
+# sugar = Ingredient.new("sugar", 125)
+# eggs = Ingredient.new("eggs", 50)
+# dark_chocolate = Ingredient.new("dark chocolate", 80)
+
+# cake_mix = [chocolate, flour, sugar, eggs]
+# bread_mix = [flour, eggs]
+# dark_choc_cake_mix = [dark_chocolate, flour, sugar, eggs]
 
 
 
