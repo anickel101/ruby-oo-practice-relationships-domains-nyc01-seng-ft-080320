@@ -2,24 +2,79 @@ require_relative '../config/environment.rb'
 
 require 'pry'
 
-
-
-
 def reload
   load 'config/environment.rb'
 end
 
+#IMDB testing
+nick = Actor.new("Nicholas Cage")
+sean = Actor.new("Sean Connery")
+john = Actor.new("John Travolta")
+ed = Actor.new("Ed Harris")
+
+
+rock_hash = {
+  :title => "The Rock",
+  :actors => {
+    nick => "Chemist",
+    sean => "Badass",
+    ed => "General"
+  }
+}
+
+faceoff_hash = {
+  :title => "Faceoff",
+  :actors => {
+    nick => "Face One",
+    john => "Face Two"
+  }
+}
+
+def new_movie(movie_hash)
+  movie = Movie.new(movie_hash[:title])
+  movie_hash[:actors].each do |actor, role|
+    char = Character.new(role, actor) 
+    MovieCharacter.new(movie, char)
+  end
+  movie
+end
+
+rock = new_movie(rock_hash)
+faceoff = new_movie(faceoff_hash)
+
+
+
+binding.pry
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #Lyft testing
-peggy = Driver.new("Peggy")
-sue = Passenger.new("Sue")
-bob = Passenger.new("Bob")
-billy = Driver.new("Billy")
+# peggy = Driver.new("Peggy")
+# sue = Passenger.new("Sue")
+# bob = Passenger.new("Bob")
+# billy = Driver.new("Billy")
 
-peggy.new_ride(sue, 100)
-peggy.new_ride(sue, 200)
+# peggy.new_ride(sue, 100)
+# peggy.new_ride(sue, 200)
 
-bob.new_ride(billy, 50)
-bob.new_ride(peggy, 25)
+# bob.new_ride(billy, 50)
+# bob.new_ride(peggy, 25)
 
 
 
@@ -60,4 +115,4 @@ bob.new_ride(peggy, 25)
 
 
 
-binding.pry
+
