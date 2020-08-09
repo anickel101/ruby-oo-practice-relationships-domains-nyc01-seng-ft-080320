@@ -22,6 +22,11 @@ class Character
         self.shows_appeared.count
     end
 
+    def episodes_appeared
+        epichars = EpisodeCharacter.all.select {|epi_char| epi_char.character == self}
+        epichars.map {|epichar| epichar.episode}
+    end
+
     def movies_appeared
         MovieCharacter.all.select {|mov_char| mov_char.character == self}
     end

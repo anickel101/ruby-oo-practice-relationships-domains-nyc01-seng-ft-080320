@@ -4,9 +4,9 @@ class ShowCharacter
     @@all = []
 
     def initialize(show, character)
-        @show = movie
+        @show = show
         @character = character
-        @all << self
+        @@all << self
     end
 
     def self.all

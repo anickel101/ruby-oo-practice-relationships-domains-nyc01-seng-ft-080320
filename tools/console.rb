@@ -12,39 +12,62 @@ sean = Actor.new("Sean Connery")
 john = Actor.new("John Travolta")
 ed = Actor.new("Ed Harris")
 
-
-rock_hash = {
-  :title => "The Rock",
+#Shows
+awesome_show = {
+  :title => "Home Movies",
   :actors => {
-    nick => "Chemist",
-    sean => "Badass",
-    ed => "General"
+    nick => "Dude",
+    sean => "Older Dude",
+    ed => "Old Dude"
   }
 }
 
-faceoff_hash = {
-  :title => "Faceoff",
-  :actors => {
-    nick => "Face One",
-    john => "Face Two"
-  }
-}
-
-def new_movie(movie_hash)
-  movie = Movie.new(movie_hash[:title])
-  movie_hash[:actors].each do |actor, role|
+def new_show(hash)
+  show = Show.new(hash[:title])
+  hash[:actors].each do |actor, role|
     char = Character.new(role, actor) 
-    MovieCharacter.new(movie, char)
+    ShowCharacter.new(show, char)
   end
-  movie
+  show
 end
 
-rock = new_movie(rock_hash)
-faceoff = new_movie(faceoff_hash)
-
-
+new_show(awesome_show)
 
 binding.pry
+
+#Movies
+# rock_hash = {
+#   :title => "The Rock",
+#   :actors => {
+#     nick => "Chemist",
+#     sean => "Badass",
+#     ed => "General"
+#   }
+# }
+
+# faceoff_hash = {
+#   :title => "Faceoff",
+#   :actors => {
+#     nick => "Face One",
+#     john => "Face Two"
+#   }
+# }
+
+# def new_movie(movie_hash)
+#   movie = Movie.new(movie_hash[:title])
+#   movie_hash[:actors].each do |actor, role|
+#     char = Character.new(role, actor) 
+#     MovieCharacter.new(movie, char)
+#   end
+#   movie
+# end
+
+#rock = new_movie(rock_hash)
+#faceoff = new_movie(faceoff_hash)
+
+
+
+
 
 
 

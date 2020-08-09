@@ -29,4 +29,18 @@ class Show
     def on_the_big_screen
         Movie.all.select {|movie| movie.name == self.name}
     end
+
+    #Lists all episodes of show
+    def episodes
+        Episodes.all.select {|episode| episode.show == self}
+    end
+
+   #creates a new episode with name, assigns the episode's show to THIS show.
+   #For testing, just take a random sample of shows characters to make a new episode 
+   def new_episode(name)
+        episode = Episode.new(name)
+        episode.show = self
+        self.chars.sample(2).each {|char| EpisodeCharacter.new(episode, self)}
+    end
+
 end
