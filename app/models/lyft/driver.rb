@@ -32,8 +32,7 @@ class Driver
         self.rides.sum {|ride| ride.distance}
     end
 
-    #Find all drivers, for each, sum up the distance of all their rides
-    #Compare against given float.
+    #Of ALL drivers, find the ones who have a total distance > given float distance.
     def self.mileage_cap(distance)
         self.all.find_all {|driver| driver.total_distance.to_f > distance}
     end
