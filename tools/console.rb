@@ -6,34 +6,46 @@ def reload
   load 'config/environment.rb'
 end
 
-#IMDB testing
-nick = Actor.new("Nicholas Cage")
-sean = Actor.new("Sean Connery")
-john = Actor.new("John Travolta")
-ed = Actor.new("Ed Harris")
+#Crowdfunding testing
+bob = User.new("Bob")
+larry = User.new("Larry")
+deb = User.new("Deb")
 
-#Shows
-awesome_show = {
-  :title => "Home Movies",
-  :actors => {
-    nick => "Dude",
-    sean => "Older Dude",
-    ed => "Old Dude"
-  }
-}
+bob_project = bob.create_project("Bob's Project", 500)
+larry_project = larry.create_project("Larry's Project", 100)
 
-def new_show(hash)
-  show = Show.new(hash[:title])
-  hash[:actors].each do |actor, role|
-    char = Character.new(role, actor) 
-    ShowCharacter.new(show, char)
-  end
-  show
-end
-
-new_show(awesome_show)
+larry.make_pledge(bob_project, 300)
+deb.make_pledge(bob_project, 200)
 
 binding.pry
+
+# #IMDB testing
+# nick = Actor.new("Nicholas Cage")
+# sean = Actor.new("Sean Connery")
+# john = Actor.new("John Travolta")
+# ed = Actor.new("Ed Harris")
+
+# #Shows
+# awesome_show = {
+#   :title => "Home Movies",
+#   :actors => {
+#     nick => "Dude",
+#     sean => "Older Dude",
+#     ed => "Old Dude"
+#   }
+# }
+
+# def new_show(hash)
+#   show = Show.new(hash[:title])
+#   hash[:actors].each do |actor, role|
+#     char = Character.new(role, actor) 
+#     ShowCharacter.new(show, char)
+#   end
+#   show
+# end
+
+# new_show(awesome_show)
+
 
 #Movies
 # rock_hash = {
