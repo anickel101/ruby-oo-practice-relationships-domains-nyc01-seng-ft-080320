@@ -15,13 +15,14 @@ class Ingredient
     end
 
     #return all desserts that use this ingredient
-    def dessert
-        Dessert.all.select {|dessert| dessert.ingredients.include?(self)}
+    def desserts
+        dis = DesertIngredient.all.select {|di| di.ingredient == self}
+        dis.map {|di| di.dessert}.uniq
     end
 
     #return all bakeries that use this ingredient
     def bakeries
-        self.dessert.select {|dessert| dessert.bakery}
+        self.desserts.select {|dessert| dessert.bakery}
     end
 
     #find all ingredients that include the given string. (ie - "chocolate" would yield 

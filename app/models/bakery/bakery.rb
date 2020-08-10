@@ -16,14 +16,19 @@ class Bakery
     end
 
 
+    def dessert_ingredients
+        DessertIngredient.all.select {|di| di.dessert.bakery == self}
+    end
+
+
     #return an array of ingredient objects for the bakery's desserts
     def ingredients
-        self.desserts.map {|dessert| dessert.ingredients}
+        self.dessert_ingredients.map {|di| di.ingredient}
     end
 
     #find all the desserts made by this bakery
     def desserts
-        Dessert.all.select {|dessert| dessert.bakery == self}
+        self.dessert_ingredients.map {|di| di.dessert}
     end
 
     def desserts_count
@@ -38,7 +43,7 @@ class Bakery
 
     #call ingredients, then iterate to map to pull :name to a new array
     def shopping_list
-        self.ingredients.map {|ingredient| ingredient.name}
+        self.ingredients.map {|i| i.name}.uniq
     end
 
 end
