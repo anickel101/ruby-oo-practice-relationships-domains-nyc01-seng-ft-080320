@@ -6,18 +6,42 @@ def reload
   load 'config/environment.rb'
 end
 
-#Crowdfunding testing
-bob = User.new("Bob")
-larry = User.new("Larry")
-deb = User.new("Deb")
 
-bob_project = bob.create_project("Bob's Project", 500)
-larry_project = larry.create_project("Larry's Project", 100)
+#Gym testing
 
-larry.make_pledge(bob_project, 300)
-deb.make_pledge(bob_project, 200)
+bob = Client.new("Bob")
+larry = Client.new("Larry")
+deb = Client.new("Deb")
+
+rock = Trainer.new("Rock")
+arnold = Trainer.new("Ahnold")
+
+first_ave = Location.new("1st Ave Gym")
+fifth_street = Location.new("5th Street Gym")
+
+bob.assign_trainer(rock)
+larry.assign_trainer(rock)
+deb.assign_trainer(arnold)
+
+rock.join_location(first_ave)
+rock.join_location(fifth_street)
+arnold.join_location(first_ave)
+
+
 
 binding.pry
+
+
+# #Crowdfunding testing
+# bob = User.new("Bob")
+# larry = User.new("Larry")
+# deb = User.new("Deb")
+
+# bob_project = bob.create_project("Bob's Project", 500)
+# larry_project = larry.create_project("Larry's Project", 100)
+
+# larry.make_pledge(bob_project, 300)
+# deb.make_pledge(bob_project, 200)
 
 # #IMDB testing
 # nick = Actor.new("Nicholas Cage")
